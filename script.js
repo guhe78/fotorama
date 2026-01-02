@@ -1,4 +1,6 @@
-const MAIN_CONTENT = document.getElementById("picture-preview");
+const MAIN_CONTENT = document.getElementById("picture_preview");
+const dialogRef = document.getElementById("picture_dialog");
+const closeDialogButton = document.getElementById("dialog_close");
 
 let picturesContent = [
   "images/content_photos/pic01.jpg",
@@ -11,8 +13,18 @@ let picturesContent = [
   "images/content_photos/pic08.jpg",
 ];
 
-console.log(picturesContent);
+closeDialogButton.onclick = closeDialog;
 
-for (let i = 0; i < picturesContent.length; i++) {
-  MAIN_CONTENT.innerHTML += `<img src="${picturesContent[i]}" />`;
+function renderContent() {
+  for (let i = 0; i < picturesContent.length; i++) {
+    MAIN_CONTENT.innerHTML += `<img src="${picturesContent[i]}" onclick="openDialog()" aria-haspopup="dialog" aria-controls="picture_dialog" />`;
+  }
+}
+
+function openDialog() {
+  dialogRef.showModal();
+}
+
+function closeDialog() {
+  dialogRef.close();
 }

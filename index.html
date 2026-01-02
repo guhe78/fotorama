@@ -7,14 +7,23 @@
     <link rel="stylesheet" href="style.css" />
     <title>fotogram</title>
   </head>
-  <body>
-    <header><h1 id="header-page-title">fotogram</h1></header>
-    <section class="main-content">
+  <body onload="renderContent()">
+    <div id="header_background"></div>
+    <header class="content_width">
+      <img src="images/pagetitle_logo.png" alt="" />
+    </header>
+    <main class="main_content content_width">
       <h2>Your personal photo album</h2>
-      <section id="picture-preview"></section>
-    </section>
-    <footer>
-      <p>Copyright 2025</p>
+      <section id="picture_preview"></section>
+      <dialog id="picture_dialog">
+        <p>This is the Dialog for a picture</p>
+        <button id="dialog_close" aria-controls="picture_dialog">Close</button>
+      </dialog>
+    </main>
+    <footer id="footer_background">
+      <section id="footer_content" class="content_width">
+        <p>Copyright 2025</p>
+      </section>
     </footer>
   </body>
 </html>
