@@ -78,5 +78,12 @@ header {
 
 #picture_preview img:hover {
   filter: brightness(140%);
-  cursor: pointer;
+  cursor: zoom-in;
+}
+
+dialog {
+}
+
+#image_dialog {
+  width: 650px;
 }
