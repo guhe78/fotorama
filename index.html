@@ -13,23 +13,44 @@
     />
   </head>
   <body onload="renderContent()">
-    <div id="header_background"></div>
-    <header class="content_width">
-      <img src="images/pagetitle_logo.png" alt="" />
-    </header>
+    <div id="header_background">
+      <header>
+        <img src="images/pagetitle_logo.png" alt="" />
+      </header>
+    </div>
     <main class="main_content content_width">
       <h2>Your personal photo album</h2>
       <section id="picture_preview"></section>
-      <dialog id="picture_dialog">
-        <p>This is the Dialog for a picture</p>
-        <img id="image_dialog" alt="" />
-        <button
-          id="dialog_close"
-          aria-label="dialog close"
-          aria-controls="picture_dialog"
-        >
-          Close
-        </button>
+      <dialog id="picture_dialog" onclick="closeDialog(event)">
+        <section id="dialog_section" onclick="dialogClick(event)">
+          <section id="dialog_header">
+            <p id="dialog_headline"></p>
+            <img
+              src="./images/close.png"
+              alt="closeicon x"
+              id="dialog_close"
+              aria-label="dialog close"
+              aria-controls="picture_dialog"
+              onclick="closeDialog(event)"
+              tabindex="1"
+            />
+          </section>
+          <img id="image_dialog" alt="" />
+          <section id="dialog_footer">
+            <img
+              src="./images/left_arrow_button.png"
+              alt="left direction arrow"
+              onclick="previousPicture()"
+              tabindex="3"
+            />
+            <img
+              src="./images/right_arrow_button.png"
+              alt="right direction arrow"
+              onclick="nextPicture()"
+              tabindex="2"
+            />
+          </section>
+        </section>
       </dialog>
     </main>
     <footer id="footer_background">
