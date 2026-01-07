@@ -49,10 +49,6 @@ dialog button {
   border: 1px solid white;
 }
 
-dialog button:hover {
-  background-color: aliceblue;
-}
-
 header {
   max-width: 1440px;
   margin: 0 auto;
@@ -126,7 +122,7 @@ dialog {
 
 .dialog_header {
   height: 100px;
-  width: 350px;
+  width: 450px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -135,6 +131,7 @@ dialog {
 .dialog_close:hover {
   border: 1px solid white;
   border-radius: 8px;
+  border-color: blue;
 }
 
 .dialog_section {
@@ -156,7 +153,7 @@ dialog {
 }
 
 .dialog_footer {
-  width: 250px;
+  width: 450px;
   display: flex;
   justify-content: space-between;
   padding: 24px;
@@ -167,13 +164,18 @@ dialog {
 }
 
 .dialog_footer button:hover {
-  background-color: rebeccapurple;
   border-radius: 50%;
+  border-color: blue;
   cursor: pointer;
 }
 
 footer {
   margin-top: auto;
+}
+
+footer img {
+  width: 50px;
+  vertical-align: middle;
 }
 
 .footer_content {
@@ -216,6 +218,10 @@ footer {
     font-size: 24px;
   }
 
+  h2 {
+    font-size: 16px;
+  }
+
   p {
     font-size: 14px;
   }
@@ -225,18 +231,22 @@ footer {
     padding-right: 12px;
   }
 
+  .picture_preview {
+    padding: 0;
+  }
+
   .picture_preview img {
     width: 40%;
   }
 
   .dialog_header {
     width: 260px;
-    height: 80px;
+    height: 100px;
   }
 
   .dialog_section {
     width: 300px;
-    height: 600px;
+    height: 650px;
   }
 
   .dialogImage {
@@ -245,27 +255,24 @@ footer {
     padding: 0 8px;
   }
 
+  .dialog_footer {
+    width: 250px;
+  }
+
   .footer_text {
     width: 350px;
   }
 }
 
 @media (max-width: 400px) {
-  h1 {
-    font-size: 16px;
-  }
-
-  h2 {
-    font-size: 16px;
-  }
-
-  p {
-    font-size: 10px;
-  }
-
   .dialog_section {
     width: 300px;
     height: 500px;
+  }
+
+  .dialog_footer button img {
+    width: 50px;
+    height: 50px;
   }
 
   .footer_text {
@@ -273,7 +280,15 @@ footer {
   }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 355px) {
+  .dialog_header {
+    width: 200px;
+  }
+
+  .dialog_header button img {
+    width: 20px;
+  }
+
   .dialogImage {
     max-width: 60%;
   }
@@ -289,9 +304,8 @@ footer {
     padding: 0;
   }
 
-  .dialog_header,
   .dialog_footer {
     width: 200px;
-    padding: 0;
+    padding-bottom: 12px;
   }
 }
