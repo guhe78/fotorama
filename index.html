@@ -13,49 +13,72 @@
     />
   </head>
   <body onload="renderContent()">
-    <div id="header_background">
+    <div class="header_background">
       <header>
-        <img src="images/pagetitle_logo.png" alt="" />
+        <img
+          src="./assets/icons/pagetitle_logo.png"
+          alt="Logo und Schriftzug Fotogram"
+        />
       </header>
     </div>
     <main class="main_content content_width">
-      <h2>Your personal photo album</h2>
-      <section id="picture_preview"></section>
-      <dialog id="picture_dialog" onclick="closeDialog(event)">
-        <section id="dialog_section" onclick="dialogClick(event)">
-          <section id="dialog_header">
-            <p id="dialog_headline"></p>
-            <img
-              src="./images/close.png"
-              alt="closeicon x"
-              id="dialog_close"
-              aria-label="dialog close"
+      <h1>Your personal photo album</h1>
+      <section id="picturePreview" class="picture_preview"></section>
+      <dialog
+        id="pictureDialog"
+        class="picture_dialog"
+        onclick="closeDialog(event)"
+      >
+        <section
+          id="dialogSection"
+          class="dialog_section"
+          onclick="dialogClick(event)"
+        >
+          <section class="dialog_header">
+            <h2 id="dialogHeadline" aria-label="Filename"></h2>
+            <button
+              id="dialogClose"
+              class="dialog_close"
+              aria-label="dialog schließen"
               aria-controls="picture_dialog"
               onclick="closeDialog(event)"
-              tabindex="1"
-            />
+            >
+              <img src="./assets/icons/close.png" alt="closeicon x" />
+            </button>
           </section>
-          <img id="image_dialog" alt="" />
-          <section id="dialog_footer">
-            <img
-              src="./images/left_arrow_button.png"
-              alt="left direction arrow"
+          <img id="dialogImage" class="dialog_image" />
+          <section class="dialog_footer">
+            <button
               onclick="previousPicture()"
-              tabindex="3"
-            />
-            <img
-              src="./images/right_arrow_button.png"
-              alt="right direction arrow"
+              type="button"
+              aria-label="voriges Bild anzeigen"
+            >
+              <img
+                src="./assets/icons/left_arrow_button.png"
+                alt="left direction arrow"
+              />
+            </button>
+
+            <button
               onclick="nextPicture()"
-              tabindex="2"
-            />
+              type="button"
+              aria-label="nächstes Bild anzeigen"
+            >
+              <img
+                src="./assets/icons/right_arrow_button.png"
+                alt="right direction arrow"
+              />
+            </button>
           </section>
         </section>
       </dialog>
     </main>
-    <footer id="footer_background">
-      <section id="footer_content" class="content_width">
-        <p>Copyright 2025</p>
+    <footer class="footer_background">
+      <section class="footer_content content_width">
+        <p class="footer_text">
+          Alle Bilder sind frei verfügbar oder wurden vom Ersteller der Webseite
+          gemacht.
+        </p>
       </section>
     </footer>
   </body>

@@ -4,6 +4,16 @@
   --header-footer-color-primary: #09212a;
 }
 
+@font-face {
+  font-family: "Atkinson";
+  src: url(./assets/fonts/AtkinsonHyperlegibleMono-VariableFont_wght.ttf);
+}
+
+html {
+  font-family: "Atkinson";
+  color: var(--font-color-primary);
+}
+
 body {
   margin: 0 auto;
   background-color: var(--background-color-primary);
@@ -12,17 +22,35 @@ body {
 
   display: flex;
   flex-direction: column;
+
+  overflow: auto;
 }
 
-#page_content {
-  min-height: 100vh;
-  max-width: 1440px;
-  margin: 0 auto;
-  color: var(--font-color-primary);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+h1 {
+  margin: 0;
+  padding-bottom: 16px;
+  text-align: center;
+}
+
+h2 {
+  margin: 0;
+}
+
+p {
+  text-align: justify;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+}
+
+dialog button {
+  border: 1px solid white;
+}
+
+dialog button:hover {
+  background-color: aliceblue;
 }
 
 header {
@@ -36,7 +64,11 @@ header {
   align-items: flex-start;
 }
 
-#header_background {
+.picture_preview button:hover {
+  filter: brightness(170%);
+}
+
+.header_background {
   z-index: -1;
   height: 100px;
   background-color: var(--header-footer-color-primary);
@@ -48,6 +80,7 @@ header {
 
 .main_content {
   margin: 0 auto;
+  padding: 132px 32px 32px 32px;
   max-width: 1440px;
   display: flex;
   flex-direction: column;
@@ -56,7 +89,7 @@ header {
   flex: 1;
 }
 
-#picture_preview {
+.picture_preview {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -64,14 +97,19 @@ header {
   padding: 0 60px;
 }
 
-#picture_preview img {
-  height: 100px;
-  width: 100px;
-  border: 1px solid lightblue;
+.picture_preview button {
+  border: 0;
+  padding: 0;
+}
+
+.picture_preview img {
+  aspect-ratio: 1/1;
+  width: 10%;
+  object-fit: cover;
   border-radius: 15px;
 }
 
-#picture_preview img:hover {
+.picture_preview img:hover {
   filter: brightness(140%);
   cursor: zoom-in;
 }
@@ -86,7 +124,7 @@ dialog {
   background-color: rgb(0, 0, 0, 0.9);
 }
 
-#dialog_header {
+.dialog_header {
   height: 100px;
   width: 350px;
   display: flex;
@@ -94,16 +132,12 @@ dialog {
   align-items: center;
 }
 
-#dialog_headline {
-  font-size: 24px;
-}
-
-#dialog_close:hover {
+.dialog_close:hover {
   border: 1px solid white;
   border-radius: 8px;
 }
 
-#dialog_section {
+.dialog_section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -115,20 +149,24 @@ dialog {
   color: antiquewhite;
 }
 
-#image_dialog {
+.dialog_image {
   max-width: 70%;
   max-height: 70%;
   padding: 0 24px;
 }
 
-#dialog_footer {
+.dialog_footer {
   width: 250px;
   display: flex;
   justify-content: space-between;
   padding: 24px;
 }
 
-#dialog_footer img:hover {
+.dialog_footer button {
+  border-radius: 50%;
+}
+
+.dialog_footer button:hover {
   background-color: rebeccapurple;
   border-radius: 50%;
   cursor: pointer;
@@ -138,12 +176,12 @@ footer {
   margin-top: auto;
 }
 
-#footer_content {
+.footer_content {
   max-width: 1440px;
   margin: 0 auto;
 }
 
-#footer_background {
+.footer_background {
   background-color: var(--header-footer-color-primary);
   width: 100%;
   margin-top: auto;
@@ -156,9 +194,104 @@ footer {
   align-items: center;
 }
 
+@media (max-width: 1440px) {
+  header {
+    padding: 0 24px;
+  }
+}
+
 @media (max-width: 800px) {
-  #dialog_section {
+  .dialog_section {
     width: 500px;
-    height: 650px;
+    height: 700px;
+  }
+
+  .picture_preview img {
+    width: 20%;
+  }
+}
+
+@media (max-width: 540px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .main_content {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .picture_preview img {
+    width: 40%;
+  }
+
+  .dialog_header {
+    width: 260px;
+    height: 80px;
+  }
+
+  .dialog_section {
+    width: 300px;
+    height: 600px;
+  }
+
+  .dialogImage {
+    max-width: 90%;
+    max-height: 60%;
+    padding: 0 8px;
+  }
+
+  .footer_text {
+    width: 350px;
+  }
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 16px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 10px;
+  }
+
+  .dialog_section {
+    width: 300px;
+    height: 500px;
+  }
+
+  .footer_text {
+    width: 250px;
+  }
+}
+
+@media (max-width: 350px) {
+  .dialogImage {
+    max-width: 60%;
+  }
+
+  .dialog_section {
+    width: 250px;
+    padding: 0;
+    margin: 0;
+    border: none;
+  }
+  .dialog_image {
+    width: 300px;
+    padding: 0;
+  }
+
+  .dialog_header,
+  .dialog_footer {
+    width: 200px;
+    padding: 0;
   }
 }
