@@ -1,3 +1,4 @@
+const BODY = document.getElementById("body");
 const PICTURE_PREVIEW = document.getElementById("picturePreview");
 const PICTURE_DIALOG = document.getElementById("pictureDialog");
 const CLOSE_DIALOG_BUTTON = document.getElementById("dialogClose");
@@ -110,11 +111,14 @@ let picturesContent = [
 
 function renderContent() {
   for (let i = 0; i < picturesContent.length; i++) {
-    PICTURE_PREVIEW.innerHTML += `
-        <img tabindex="0" onclick="openDialog(event)" onkeydown="onkeyOpenDialog(event)" aria-haspopup="dialog" aria-controls="picture_dialog" src="${
-          IMAGE_URL + picturesContent[i].fileName
-        }" alt="${picturesContent[i].altText}" />`;
+    PICTURE_PREVIEW.innerHTML += getImagesPreviewTemplate(i);
   }
+}
+
+function getImagesPreviewTemplate(index) {
+  return `<img tabindex="0" onclick="openDialog(event)" onkeydown="onkeyOpenDialog(event)" aria-haspopup="dialog" aria-controls="picture_dialog" src="${
+    IMAGE_URL + picturesContent[index].fileName
+  }" alt="${picturesContent[index].altText}" />`;
 }
 
 function openDialog(event) {
@@ -126,6 +130,7 @@ function openDialog(event) {
   setImagePosition(getFileName(IMAGE_DIALOG.src));
 
   PICTURE_DIALOG.classList.add("opened");
+  BODY.classList.add("no_scroll");
 }
 
 function onkeyOpenDialog(event) {
@@ -137,6 +142,7 @@ function onkeyOpenDialog(event) {
 
 function closeDialog() {
   PICTURE_DIALOG.classList.remove("opened");
+  BODY.classList.remove("no_scroll");
   PICTURE_DIALOG.close();
 }
 
